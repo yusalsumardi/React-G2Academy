@@ -1,0 +1,67 @@
+.isiabout {
+  margin: 10px 100px;
+  align-content: center;
+}
+
+.imgbox {
+  height: 200px;
+}
+
+.boxportofolio {
+  display: flex;
+  width: 1000px;
+  height: 250px;
+  background-color: #696969;
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.box {
+  /* properti lainnya */
+  background-color: #dcdcdc;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.box img {
+  flex-grow: 1;
+  width: 300px;
+  border-radius: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  align-content: center;
+  margin: 5px;
+}
+
+.thumb:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.foarmcontact {
+  padding: 5px 500px;
+}
+
+.contactprop {
+  font-size: 20px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.Subjudul {
+  margin-top: 90px;
+}
+
+.contactprop p {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+footer {
+  background-color: lightgrey;
+  text-align: center;
+  /* margin-top: 50px; */
+}
