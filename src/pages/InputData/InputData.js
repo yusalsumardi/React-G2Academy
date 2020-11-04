@@ -9,6 +9,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {Input} from '@ui-kitten/components';
+import ImagePicker from 'react-native-image-picker';
 
 class InputData extends Component {
   constructor(props) {
@@ -17,8 +18,43 @@ class InputData extends Component {
       id: '',
       name: '',
       picture: '',
+      resourcePath: {},
     };
   }
+
+  selectFile = () => {
+    var options = {
+      title: 'Select Image',
+      customButtons: [
+        {
+          name: 'customOptionKey',
+          title: 'Choose file from Custom Option',
+        },
+      ],
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+
+    ImagePicker.showImagePicker(options, (res) => {
+      console.log('Response = ', res);
+
+      if (res.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (res.error) {
+        console.log('ImagePicker Error: ', res.error);
+      } else if (res.customButton) {
+        console.log('User tapped custom button: ', res.customButton);
+        alert(res.customButton);
+      } else {
+        let source = res;
+        this.setState({
+          resourcePath: source,
+        });
+      }
+    });
+  };
 
   componentDidMount() {
     console.log(
@@ -67,6 +103,9 @@ class InputData extends Component {
           <TouchableOpacity style={styles.button} onPress={this.onPressHandler}>
             <Text>Add User</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={this.selectFile}>
+            <Text>Add Photo</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     );
@@ -99,6 +138,7 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: '#DDDDDD',
     borderRadius: 5,
+    marginBottom: 5,
   },
 });
 
